@@ -23,8 +23,9 @@ A simple task management system built with FastAPI that handles background proce
 git clone https://github.com/AkmyradovN/Task-Management-System.git
 cd Task-Management-System
 docker-compose up --build
+```
 
-Access these after startup:
+### Access these after startup:
 
     API: http://localhost:8000
 
@@ -32,38 +33,39 @@ Access these after startup:
 
     Alternative docs: http://localhost:8000/redoc
 
-Running Locally
+### Running Locally
 
     Install dependencies:
 
-bash
+```bash
 
 pip install -e .
+```
+### Start PostgreSQL:
 
-    Start PostgreSQL:
-
-bash
+```bash
 
 docker run --name postgres-taskdb \
   -e POSTGRES_PASSWORD=password \
   -e POSTGRES_DB=taskdb \
   -p 5432:5432 \
   -d postgres:15
+```
+### Set environment variable:
 
-    Set environment variable:
-
-bash
+```bash
 
 export DATABASE_URL="postgresql+asyncpg://postgres:password@localhost:5432/taskdb"
+```
+### Apply database migrations:
 
-    Apply database migrations:
-
-bash
+```bash
 
 alembic upgrade head
+```
+### Start the server:
 
-    Start the server:
-
-bash
+```bash
 
 uvicorn app.main:app --reload
+```
